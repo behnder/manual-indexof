@@ -1,43 +1,38 @@
-let firstStr = "redux"
-let secondStr = "react-redux-re"
+let firstStr = "reactcara-redax-re-cara"
+let secondStr = "cara"
 
 let compareArr = []
+let temp
 
-for (const letter of firstStr) {
-	for (const letter2 of secondStr) {
-		if (letter === letter2) {
-			console.log("pusheando a compare arr", "com")
-			compareArr.push(letter2)
-			console.log(compareArr)
-		} else if (compareArr.length != firstStr.length) {
-			console.log("parece que no miden lo mismo")
-			console.log(compareArr.length)
-			compareArr = []
-		} else if (compareArr.length === firstStr.length) {
-			console.log(compareArr)
-		}
-		break
-	}
-}
+idxResult = 0
+
 for (a = 0; a < firstStr.length; a++) {
+	temp = a
 	for (b = 0; b < secondStr.length; b++) {
-		if (letter === letter2) {
-			console.log("pusheando a compare arr")
-			compareArr.push(letter2)
+		if (firstStr[a] === secondStr[b] && compareArr.length < secondStr.length) {
+			a++
+			compareArr.push(secondStr[b])
+			if (compareArr.length < 2) {
+				idxResult = a
+			}
+			console.log(
+				"compareArr = " + compareArr.length + "  seconstr =    ",
+				secondStr.length
+			)
+		} else if (compareArr.length === secondStr.length) {
+			console.log("somos iguales: ", compareArr, secondStr)
 
-			console.log(compareArr)
-		} else if (compareArr.length != firstStr.length) {
-			console.log("parece que no miden lo mismo")
-			console.log(compareArr.length)
+			break
+		} else {
+			a = temp
 			compareArr = []
-		} else if (compareArr.length === firstStr.length) {
-			console.log(compareArr)
 		}
-		break
 	}
 }
 
-console.log(compareArr)
+console.log(
+	`el array final es ${compareArr.join("")}, en la posicion ${idxResult}`
+)
 
 // SI ENCUENTRA, PUSHEA A compareArr
 // sessionStorage,
